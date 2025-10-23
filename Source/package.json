@@ -1,0 +1,20 @@
+{
+    "name": "parcial",
+    "version": "1.0.0",
+    "description": "\t\t\t",
+    "type": "module",
+    "main": "index.js",
+    "scripts": {
+        "dev": "node --watch index.js",
+        "linter:check": "npx @biomejs/biome lint .",
+        "linter:format": "npx @biomejs/biome format --write ."
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "biome": "^0.3.3",
+        "express": "^5.1.0",
+        "jsonwebtoken": "^9.0.2",
+        "morgan": "^1.10.1"
+    }
+}

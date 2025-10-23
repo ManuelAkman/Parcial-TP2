@@ -1,0 +1,68 @@
+@host=http://127.0.0.1:3100
+@emailCreditcard=melo21@gmail.com
+@apikey=TP2-Secreto
+
+@jwt_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkJydWNlV2F5bmUiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NTgxNjEwNDQsImV4cCI6MTc1ODI0NzQ0NH0.HsCAvjUwSqs1sh6_Ej1AIwOLysod_1_ch4XurBpIZAw
+
+###
+GET {{host}}/api/admin/creditCard
+Content-Type: application/json
+
+{
+    "validacion": "creditCard"
+}
+
+###
+GET {{host}}/api/apikey/creditCard?api_key={{apikey}}
+
+###
+GET {{host}}/api/apikey/creditCard
+x-api-key: {{apikey}}
+
+###
+POST {{host}}/user/login
+Content-Type: application/json
+
+{
+    "username": "admin",
+    "password": "admin1234"
+}
+
+###
+GET {{host}}/api/jwtoken/creditCard
+Authorization: Bearer {{jwt_token}}
+Content-Type: application/json
+
+###
+GET {{host}}/api/creditCard
+Content-Type: application/json
+
+{
+    "email": "{{emailCreditcard}}"
+}
+
+###
+POST {{host}}/api/creditCard
+Content-Type: application/json
+
+{
+  "cardNumber": "7894652317581254",
+  "cardHolder": "Romeo Ornero",
+  "expirationDate": "01/01/2031",
+  "cvv": "851",
+  "email": "elOrnero32@gmail.com"
+}
+
+
+### 
+DELETE {{host}}/api/creditCard/{{emailCreditcard}}
+
+### 
+PATCH {{host}}/api/creditCard/{{emailCreditcard}}
+Content-Type: application/json
+
+{
+    "cardNumber": "8892252311514256",
+    "cvv": "884"
+}
+
