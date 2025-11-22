@@ -1,9 +1,6 @@
-import jwt from 'jsonwebtoken';
-
 import { CONFIG } from '../configuration/configuration.js';
 
-const { DUMMY_USER_ADMIN, SECRECT_KEY } = CONFIG;
-const userForToken = (data, key, options) => jwt.sign(data, key, options);
+const { DUMMY_USER_ADMIN } = CONFIG;
 
 export const loginAdmin = (req, res) => {
   const { username, password } = req.body;
@@ -16,22 +13,9 @@ export const loginAdmin = (req, res) => {
     });
     return;
   }
-
-  const token = userForToken(
-    {
-      username: DUMMY_USER_ADMIN.username,
-      role: 'admin',
-    },
-    SECRECT_KEY,
-    {
-      expiresIn: '1d',
-    },
-  );
-
-  res.json({
+ res.json({
     status: 200,
     OK: true,
-    token,
     message: 'Login exitoso',
   });
 };

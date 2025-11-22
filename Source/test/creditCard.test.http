@@ -2,8 +2,6 @@
 @emailCreditcard=elOrnero32@gmail.com
 @apikey=TP2-Secreto
 
-@jwt_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkJydWNlV2F5bmUiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NTgxNjEwNDQsImV4cCI6MTc1ODI0NzQ0NH0.HsCAvjUwSqs1sh6_Ej1AIwOLysod_1_ch4XurBpIZAw
-
 ###
 GET {{host}}/api/admin/creditCard
 Content-Type: application/json
@@ -13,15 +11,13 @@ Content-Type: application/json
 }
 
 ###
-GET {{host}}/api/apikey/creditCard?api_key={{apikey}}
-
-###
 GET {{host}}/api/apikey/creditCard
 x-api-key: {{apikey}}
 
 ###
 POST {{host}}/user/login
 Content-Type: application/json
+x-api-key: {{apikey}}
 
 {
     "username": "admin",
@@ -29,15 +25,13 @@ Content-Type: application/json
 }
 
 ###
-GET {{host}}/api/jwtoken/creditCard
-Authorization: Bearer {{jwt_token}}
-Content-Type: application/json
-
-###
 GET {{host}}/api/creditCard/{{emailCreditcard}}
+x-api-key: {{apikey}}
+
 ###
 POST {{host}}/api/creditCard
 Content-Type: application/json
+x-api-key: {{apikey}}
 
 {
   "cardNumber": "789465217581244",
@@ -50,10 +44,12 @@ Content-Type: application/json
 
 ### 
 DELETE {{host}}/api/creditCard/{{emailCreditcard}}
-
+x-api-key: {{apikey}}
+    
 ### 
 PATCH {{host}}/api/creditCard/{{emailCreditcard}}
 Content-Type: application/json
+x-api-key: {{apikey}}
 
 {
     "cardNumber": "8892252311514256",
