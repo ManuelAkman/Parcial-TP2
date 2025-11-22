@@ -1,10 +1,11 @@
-import { CreditCard } from 'C:\Users\dizzy\source\repos\Parcial-TP2\Source\models\creditCard.model.js';
+
+import { CreditCard } from '../models/CreditCard.model.js';
 import { DataBaseRepository } from '../repositories/json.repository.js';
 
 const database = new DataBaseRepository('database/creditCard.db.json');
 
 export const CreditCardController = {
-    getAllData: async (req, res) => {
+  getAllData: async (req, res) => {
         const creditCards = await database.getAllData();
 
     const creditCardObjectArray = creditCards.map((card) =>
@@ -87,7 +88,7 @@ export const CreditCardController = {
     });
   },
 
-  deleteProduct: async (req, res) => {
+  deleteCreditCard: async (req, res) => {
     const { email } = req.params;
 
     try {

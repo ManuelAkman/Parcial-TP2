@@ -7,7 +7,7 @@ import { validateTokenMiddleware } from '../middleware/auth.middleware.js';
 const { getAllData } = CreditCardController;
 const creditCardAdminRouter = express.Router();
 
-productAdminRouter
+creditCardAdminRouter
   .get('/api/admin/creditCard', testMiddleware, getAllData)
   .get('/api/apikey/creditCard', apikeyAuth, getAllData)
   .get('/api/jwtoken/creditCard', validateTokenMiddleware, getAllData);

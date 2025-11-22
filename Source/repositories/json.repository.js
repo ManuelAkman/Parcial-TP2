@@ -1,6 +1,5 @@
 import fs from 'fs/promises';
-import { CreditCard } from 'C:\Users\dizzy\source\repos\Parcial-TP2\Source\models\creditCard.model.js';
-
+import { CreditCard } from '../models/CreditCard.model.js';
 export class DataBaseRepository {
   constructor(path) {
     this.path = path;
@@ -41,6 +40,12 @@ export class DataBaseRepository {
   async createCreditCard(creditCard) {
     let data = await this.getAllData();
 
+    for (const card of data) {
+      if (card.cardNumber  === creditCard.cardNumber ) {
+        throw new Error(`Ya existe una tarjeta de credito con el numero: ${creditCard.cardNumber}`);
+      }
+    }
+
     data.push(creditCard);
 
     await fs.writeFile(this.path, JSON.stringify(data, null, 2));
@@ -51,7 +56,7 @@ export class DataBaseRepository {
   }
 
 
-  async deleteProduct(creditCard) {
+  async deleteCreditCard(creditCard) {
     const { email } = creditCard;
 
     let data = await this.getAllData();
@@ -65,7 +70,7 @@ export class DataBaseRepository {
     };
   }
 
-  async updateProduct(creditCard) {
+  async updateCreditCard(creditCard) {
     const { email } = creditCard;
 
     let data = await this.getAllData();

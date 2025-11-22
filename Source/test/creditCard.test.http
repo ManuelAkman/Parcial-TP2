@@ -1,5 +1,5 @@
 @host=http://127.0.0.1:3100
-@emailCreditcard=melo21@gmail.com
+@emailCreditcard=elOrnero32@gmail.com
 @apikey=TP2-Secreto
 
 @jwt_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkJydWNlV2F5bmUiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NTgxNjEwNDQsImV4cCI6MTc1ODI0NzQ0NH0.HsCAvjUwSqs1sh6_Ej1AIwOLysod_1_ch4XurBpIZAw
@@ -34,19 +34,13 @@ Authorization: Bearer {{jwt_token}}
 Content-Type: application/json
 
 ###
-GET {{host}}/api/creditCard
-Content-Type: application/json
-
-{
-    "email": "{{emailCreditcard}}"
-}
-
+GET {{host}}/api/creditCard/{{emailCreditcard}}
 ###
 POST {{host}}/api/creditCard
 Content-Type: application/json
 
 {
-  "cardNumber": "7894652317581254",
+  "cardNumber": "789465217581244",
   "cardHolder": "Romeo Ornero",
   "expirationDate": "01/01/2031",
   "cvv": "851",
